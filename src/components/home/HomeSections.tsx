@@ -22,7 +22,6 @@ import { whoWeAre, historyMilestones, galleryItems, historyIntro } from "@/conte
 import { NewsCoverImage } from "@/components/news/NewsCoverImage";
 import { newsArticles } from "@/content/news";
 import { getUpcomingEvents } from "@/content/events";
-import { cn } from "@/lib/utils";
 
 const marqueeItems = [
   "ADMISSIONS OPEN",
