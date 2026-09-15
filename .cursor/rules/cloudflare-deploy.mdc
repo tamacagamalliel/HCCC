@@ -1,0 +1,29 @@
+---
+description: Always deploy HCCC site changes to Cloudflare Pages after completing work
+alwaysApply: true
+---
+
+# Cloudflare Pages deploy (HCCC)
+
+This project’s live site is Cloudflare Pages.
+
+- **Project name:** `hccc-carigara`
+- **Production URL:** https://hccc-carigara.pages.dev
+- **Deploy command (preferred on Windows):** `npm.cmd run pages:deploy`
+- **Or double-click / run:** `deploy.cmd`
+- Avoid plain `npm` in PowerShell when ExecutionPolicy blocks `npm.ps1`.
+
+## Required agent behavior
+
+After finishing any user-requested change that affects the website (UI, content, styles, config, images, functions), **deploy to Cloudflare Pages before ending the turn**, unless the user explicitly says not to deploy.
+
+1. On Windows, run `npm.cmd run pages:deploy` (or `.\deploy.cmd`) from the project root.
+2. Confirm the production URL https://hccc-carigara.pages.dev in the reply.
+3. If deploy fails due to auth, run `npx wrangler login`, then retry deploy.
+4. Do not deploy for pure Q&A, planning-only turns, or when the user only asked for local review.
+
+## Notes
+
+- Static export output is `out/`; Pages Functions live in `functions/`.
+- Production site URL is set in `.env.production` as `NEXT_PUBLIC_SITE_URL`.
+- Never use netbank-related project/domain names; keep HCCC naming (`hccc-carigara`).
